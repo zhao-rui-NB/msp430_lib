@@ -85,13 +85,9 @@ class UART{
             }
         }
         void write(char data){
-            if(TX_fifo.IS_full()){
-                return;
-            }
-            else{
-                TX_fifo.push(data);
-                IE2 |= UCA0TXIE;
-            }
+            while(TX_fifo.IS_full());
+            TX_fifo.push(data);
+            IE2 |= UCA0TXIE;
         }
 
         void print(){
@@ -106,7 +102,7 @@ class UART{
 
         void print(char* str){
             for(; *str != '\0' ; str++){
-                TX_fifo.push(*str);
+                write(*str);
             }
             IE2 |= UCA0TXIE;
         }

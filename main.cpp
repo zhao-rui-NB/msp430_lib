@@ -1,7 +1,7 @@
 #include <msp430g2553.h>
 
 #include "uart.h"
-
+UART uart;
    //uart  init
 //uart.begin(dco_freq,baud_rate); //add after pin init
    //

@@ -139,7 +139,7 @@ class UART{
 
 /////////////////////////////////////////////////////////////////////
 
-UART uart;
+extern UART uart;
 
 #pragma vector = USCIAB0TX_VECTOR
 __interrupt void  USCI0TX_ISR(void){
